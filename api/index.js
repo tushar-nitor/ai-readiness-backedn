@@ -1,13 +1,13 @@
 const express = require("express");
 const session = require("express-session");
-const passport = require("./services/passport");
-const authRoutes = require("./router/auth"); // Ensure this path is correct
+const passport = require("../services/passport");
+const authRoutes = require("../router/auth"); // Ensure this path is correct
 const cors = require("cors");
-const connectDB = require("./config/db");
-const documentRoutes = require("./router/documents");
-const projectRoutes = require("./router/projects");
-const questionnaireRoutes = require("./router/questionare");
-const assessmentRoutes = require("./router/assessment"); // Ensure this path is correct
+const connectDB = require("../config/db");
+const documentRoutes = require("../router/documents");
+const projectRoutes = require("../router/projects");
+const questionnaireRoutes = require("../router/questionare");
+const assessmentRoutes = require("../router/assessment"); // Ensure this path is correct
 const app = express();
 
 // connectDB();
