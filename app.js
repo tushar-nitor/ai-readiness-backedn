@@ -67,13 +67,13 @@ app.use("/api/assessment", assessmentRoutes);
 app.get("/", (req, res) => res.send("Express on Vercel"));
 
 // Test endpoint
-app.get("/", (req, res) => {
+app.get("/test", (req, res) => {
   res.send("Server is working!");
 });
 
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
-});
+// app.listen(3000, () => {
+//   console.log("Server running on http://localhost:3000");
+// });
 console.log("Server running ");
 
-// module.exports = app;
+module.exports = app;
