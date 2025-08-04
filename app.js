@@ -1,37 +1,37 @@
 const express = require("express");
 const session = require("express-session");
-const passport = require("../services/passport");
-const authRoutes = require("../router/auth"); // Ensure this path is correct
+const passport = require("./services/passport");
+const authRoutes = require("./router/auth"); // Ensure this path is correct
 const cors = require("cors");
-const connectDB = require("../config/db");
-const documentRoutes = require("../router/documents");
-const projectRoutes = require("../router/projects");
-const questionnaireRoutes = require("../router/questionare");
-const assessmentRoutes = require("../router/assessment"); // Ensure this path is correct
+const connectDB = require("./config/db");
+const documentRoutes = require("./router/documents");
+const projectRoutes = require("./router/projects");
+const questionnaireRoutes = require("./router/questionare");
+const assessmentRoutes = require("./router/assessment"); // Ensure this path is correct
 const app = express();
 
 // connectDB();
-const allowedOrigins = [
-  "http://localhost:4200",
-  "https://ai-readiness-indol.vercel.app/",
-  "https://ai-readiness-tushar-nitors-projects.vercel.app/",
-];
+// const allowedOrigins = [
+//   "http://localhost:4200",
+//   "https://ai-readiness-indol.vercel.app/",
+//   "https://ai-readiness-tushar-nitors-projects.vercel.app/",
+// ];
 
-// Middleware
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("CORS not allowed"));
-      }
-    },
-    credentials: true,
-    methods: ["GET", "POST", "OPTIONS", "PUT", "DELETE", "FETCH"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+// // Middleware
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       if (!origin || allowedOrigins.includes(origin)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("CORS not allowed"));
+//       }
+//     },
+//     credentials: true,
+//     methods: ["GET", "POST", "OPTIONS", "PUT", "DELETE", "FETCH"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//   })
+// );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -75,5 +75,3 @@ app.listen(3000, () => {
   console.log("Server running on http://localhost:3000");
 });
 console.log("Server running ");
-
-module.exports = app;
