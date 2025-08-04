@@ -7,7 +7,7 @@ const documentController = require("../controller/document_controller");
 // Accepts up to 3 files under "files" field + projectId in form-data/body
 
 const upload = multer({
-  dest: "./uploads/",
+  dest: "/tmp/",
   limits: { fileSize: 20 * 1024 * 1024 }, // Max 20MB per file
 });
 router.post(
