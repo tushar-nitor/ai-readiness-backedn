@@ -34,37 +34,37 @@ const app = express();
 // );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.get("/", (req, res) => res.send("Express on Vercel"));
 
-app.use(async (req, res, next) => {
-  await connectDB();
-  next();
-});
+// app.use(async (req, res, next) => {
+//   await connectDB();
+//   next();
+// });
 
 // Session configuration
-app.use(
-  session({
-    secret: "strong-session-secret",
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      secure: false, // false for localhost over HTTP
-      httpOnly: true,
-      sameSite: "lax", // Or "none" if you are testing on different domains/ports with HTTPS only
-      maxAge: 24 * 60 * 60 * 1000,
-    },
-  })
-);
+// app.use(
+//   session({
+//     secret: "strong-session-secret",
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//       secure: false, // false for localhost over HTTP
+//       httpOnly: true,
+//       sameSite: "lax", // Or "none" if you are testing on different domains/ports with HTTPS only
+//       maxAge: 24 * 60 * 60 * 1000,
+//     },
+//   })
+// );
 
 // Passport initialization
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
-app.use("/auth", authRoutes);
-app.use("/api/projects", projectRoutes);
-app.use("/api/documents", documentRoutes);
-app.use("/api/questionnaire", questionnaireRoutes);
-app.use("/api/assessment", assessmentRoutes);
-app.get("/", (req, res) => res.send("Express on Vercel"));
+// app.use("/auth", authRoutes);
+// app.use("/api/projects", projectRoutes);
+// app.use("/api/documents", documentRoutes);
+// app.use("/api/questionnaire", questionnaireRoutes);
+// app.use("/api/assessment", assessmentRoutes);
 
 // Test endpoint
 app.get("/test", (req, res) => {
